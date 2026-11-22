@@ -1,10 +1,11 @@
+import { HexCluster, HeroRings } from "@/src/components/Decorations";
 import DynamicPartViewer from "@/src/components/DynamicPartViewer";
 import Section, { Container } from "@/src/components/Section";
 import { hero, site } from "@/src/data/content";
 
 export default function Hero() {
   return (
-    <Section id={hero.id}>
+    <Section id={hero.id} deco={<HexCluster />}>
       <Container className="grid w-full grid-cols-1 items-center gap-5 min-[901px]:grid-cols-[1.05fr_.95fr]">
         <div className="relative z-[2] order-2 min-w-0 min-[901px]:order-none">
           <p className="font-display text-[clamp(17px,1.8vw,24px)] font-medium text-blue">
@@ -38,13 +39,14 @@ export default function Hero() {
         </div>
 
         <div className="relative z-[1] order-1 h-[36vh] w-full min-w-0 min-[901px]:order-none min-[901px]:h-[min(70vh,660px)]">
+          <HeroRings />
           <DynamicPartViewer
             type={hero.partType}
             scale={hero.partScale}
             aria-label="Model 3D injektor diesel"
-            className="h-full w-full"
+            className="relative z-[1] h-full w-full"
           />
-          <p className="absolute right-0 bottom-0 text-[12.5px] text-mut">
+          <p className="absolute right-0 bottom-0 z-[2] text-[12.5px] text-mut">
             {hero.hint}
           </p>
         </div>

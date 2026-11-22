@@ -10,14 +10,14 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main>
+      <main id="home">
         <Hero />
         <Products />
         <Brands />
         <Equipment />
         <About />
-        <Contact />
       </main>
+      <Contact />
     </>
   );
 }

@@ -1,3 +1,4 @@
+import { ContactRings } from "@/src/components/Decorations";
 import Section, { Container } from "@/src/components/Section";
 import { contactSection, site } from "@/src/data/content";
 
@@ -54,7 +55,8 @@ export default function Contact() {
   return (
     <Section
       id={contactSection.id}
-      className="flex-col items-stretch justify-between text-center before:bg-[radial-gradient(800px_420px_at_50%_100%,rgba(42,168,255,.25),transparent_70%)]"
+      className="contact flex-col items-stretch justify-between text-center before:bg-[radial-gradient(800px_420px_at_50%_100%,rgba(42,168,255,.25),transparent_70%)]"
+      deco={<ContactRings />}
     >
       <Container className="flex w-full flex-1 flex-col items-center justify-center">
         <h2 className="mb-2 font-display text-[clamp(34px,5.6vw,80px)] leading-[1.1] font-medium">
@@ -102,7 +104,7 @@ export default function Contact() {
           </span>
         </div>
       </Container>
-      <footer className="pt-[18px] text-[13.5px] text-mut">
+      <footer className="relative z-[1] pt-[18px] text-[13.5px] text-mut">
         <Container>{site.footer}</Container>
       </footer>
     </Section>

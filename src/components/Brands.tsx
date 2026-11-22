@@ -1,10 +1,11 @@
 import Image from "next/image";
+import { BrandRings } from "@/src/components/Decorations";
 import Section, { Container } from "@/src/components/Section";
 import { brandsSection } from "@/src/data/content";
 
 export default function Brands() {
   return (
-    <Section id={brandsSection.id}>
+    <Section id={brandsSection.id} deco={<BrandRings />}>
       <Container>
         <h2 className="mb-2 font-display text-[clamp(26px,3.4vw,46px)] leading-[1.1] font-medium">
           {brandsSection.systemTitle}
@@ -31,8 +32,7 @@ export default function Brands() {
         </h2>
         <div className="mt-[clamp(12px,2.4vh,22px)] grid grid-cols-3 gap-2.5 max-[560px]:grid-cols-3 min-[561px]:max-[900px]:grid-cols-4 min-[901px]:grid-cols-7">
           {brandsSection.machineBrands.map((brand) => {
-            const darkBg =
-              brand.name === "CAT" || brand.name === "Hyundai";
+            const darkBg = brand.name === "CAT" || brand.name === "Hyundai";
             return (
               <div
                 key={brand.name}

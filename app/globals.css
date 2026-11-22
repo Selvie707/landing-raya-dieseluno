@@ -82,3 +82,184 @@ h3 {
   margin: 0;
   font-weight: 500;
 }
+
+/* Section dotted geometry pattern */
+main#home > section::after,
+section.contact::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: radial-gradient(
+    rgba(14, 127, 184, 0.22) 1.3px,
+    transparent 1.6px
+  );
+  background-size: 24px 24px;
+}
+
+main#home > section:nth-of-type(odd)::after {
+  -webkit-mask-image: radial-gradient(520px 340px at 100% 0, #000, transparent);
+  mask-image: radial-gradient(520px 340px at 100% 0, #000, transparent);
+}
+
+main#home > section:nth-of-type(even)::after {
+  -webkit-mask-image: radial-gradient(520px 340px at 0 100%, #000, transparent);
+  mask-image: radial-gradient(520px 340px at 0 100%, #000, transparent);
+}
+
+section.contact::after {
+  -webkit-mask-image: radial-gradient(520px 300px at 50% 0, #000, transparent);
+  mask-image: radial-gradient(520px 300px at 50% 0, #000, transparent);
+}
+
+/* Decorative geometry */
+.deco {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: spin 16s linear infinite;
+}
+
+.rings {
+  inset: 0;
+  margin: auto;
+  width: min(100%, 560px);
+  height: min(100%, 560px);
+}
+
+.hxc {
+  left: 2%;
+  bottom: 20px;
+  width: 130px;
+}
+
+.gear {
+  animation: spin 90s linear infinite;
+}
+
+.gear.g1 {
+  width: min(46vw, 480px);
+  right: -110px;
+  top: -90px;
+}
+
+.gear.g2 {
+  width: min(30vw, 300px);
+  left: -80px;
+  bottom: -70px;
+  animation-direction: reverse;
+  animation-duration: 70s;
+}
+
+.hexbig {
+  width: 230px;
+  left: 3%;
+  top: 16%;
+}
+
+.rg {
+  right: -130px;
+  top: 8%;
+  width: 400px;
+}
+
+.crings {
+  left: 50%;
+  top: 50%;
+  width: min(130vw, 960px);
+  transform: translate(-50%, -50%);
+}
+
+.orn {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.orn i {
+  display: block;
+  width: 26px;
+  height: 26px;
+}
+
+.orn i:nth-child(1) {
+  background: linear-gradient(135deg, #2aa8ff, #0e7fb8);
+  clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0 50%);
+}
+
+.orn i:nth-child(2) {
+  border-radius: 50%;
+  border: 3px solid var(--amber);
+}
+
+.orn i:nth-child(3) {
+  background: rgba(14, 127, 184, 0.2);
+  transform: rotate(45deg) scale(0.7);
+  border-radius: 4px;
+}
+
+.quote-bar {
+  border-left: 3px solid var(--amber);
+  padding-left: 16px;
+}
+
+.ic {
+  flex: none;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: #fff;
+  font-style: normal;
+}
+
+.ic.a {
+  background: linear-gradient(135deg, #2aa8ff, #0e7fb8);
+  clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0 50%);
+}
+
+.ic.b {
+  background: linear-gradient(135deg, #ffd07a, #f5a623);
+  color: #0b1f33;
+  border-radius: 50%;
+}
+
+.ic.c {
+  background: linear-gradient(135deg, #0b1f33, #14507a);
+  border-radius: 12px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spin,
+  .gear {
+    animation: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .hxc,
+  .hexbig {
+    display: none;
+  }
+
+  .gear.g1 {
+    opacity: 0.6;
+  }
+}

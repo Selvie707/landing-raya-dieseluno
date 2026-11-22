@@ -17,8 +17,8 @@ export default function ProdukPage() {
       <Navbar />
       <main>
         <ProductsCatalog />
-        <Contact />
       </main>
+      <Contact />
     </>
   );
 }
